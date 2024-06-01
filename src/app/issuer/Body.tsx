@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import '../styles/custom-styles.css'
 import { MintNFTPopup } from '../components/MintNFTPopup'
 type CryptoAddress = `0x${string}`
 import Dashboard from './components/Dashboard'
@@ -24,10 +25,10 @@ const Body = () => {
   }) => {
     console.log('Submitted institution details:', details)
     setShowPopup(false)
-    setName('')
+    setName('')         
   }
   return (
-    <main className="flex pt-20 bg-stone-300">
+    <main className="flex pt-20">
       <Dashboard />
     </main>
   )

@@ -71,8 +71,8 @@
     @apply border-border;
   }
   body {
-    --dot-bg: rgba(255, 255, 255, 0.733);
-    --dot-color: blac;
+    --dot-bg: rgba(0, 0, 0, 0.733);
+    --dot-color: white;
     --dot-size: 2px;
     --dot-space: 22px;
     background: linear-gradient(

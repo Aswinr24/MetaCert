@@ -7,6 +7,20 @@ const Josefin = Josefin_Sans({ weight: ['400'], subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'MetaCert',
   description: 'Educational credentials on your wallet',
+  icons: [
+    {
+      rel: 'icon',
+      type: 'image/x-icon',
+      url: 'icon2.ico',
+      media: '(prefers-color-scheme: dark)',
+    },
+    {
+      rel: 'icon',
+      type: 'image/x-icon',
+      url: 'icon.ico',
+      media: '(prefers-color-scheme: light)',
+    },
+  ],
 }
 
 export default function RootLayout({

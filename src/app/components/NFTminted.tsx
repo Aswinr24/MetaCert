@@ -16,7 +16,7 @@ const NFTminted: React.FC<NFTmintedprops> = ({ sname, address, onClose }) => {
             : 'Fill all the Details first sighhh...'}
         </h2>
         <h3 className="text-lg font-semibold">
-          adding to {sname ? sname : 'none'}'s Wallet({address})
+          adding to {sname ? sname : 'none'}&apos;s Wallet({address})
         </h3>
         <button
           className="rounded-lg px-1.5 mt-3 py-1 bg-amber-600"

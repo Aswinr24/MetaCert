@@ -77,15 +77,14 @@ const Body = () => {
           disabled
         />
       </div>
-      {/* <QRCodeComponent qrData="https://sahilraj.xyz" /> */}
       <div>
         <h1 className="text-3xl py-6 px-10 text-blue-600">Your EduNFTs:</h1>
         <div className="grid grid-cols-3 px-20 py-4 space-y-8">
           {nfts.length === 0 ? (
             <h1 className="text-2xl text-black">No NFTs are held by you!</h1>
           ) : (
-            nfts.map((nft) => (
-              <Card className="w-[350px] pb-0 bg-blue-400">
+            nfts.map((nft, index) => (
+              <Card className="w-[350px] pb-0 bg-blue-400" key={index}>
                 <CardHeader className="p-2">
                   <div className="flex-row items-center justify-center">
                     {nft.image_url ? (
