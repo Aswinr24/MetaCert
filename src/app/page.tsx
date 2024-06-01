@@ -5,11 +5,7 @@ import Body from './components/Body'
 import '@rainbow-me/rainbowkit/styles.css'
 import { RainbowKitProvider, darkTheme } from '@rainbow-me/rainbowkit'
 import { WagmiProvider } from 'wagmi'
-import {
-  mainnet,
-  polygon,
-  sepolia,
-} from 'wagmi/chains'
+import { mainnet, polygon, sepolia } from 'wagmi/chains'
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query'
 import { getDefaultConfig } from '@rainbow-me/rainbowkit'
 
@@ -28,7 +24,7 @@ export default function Home() {
         <QueryClientProvider client={queryClient}>
           <RainbowKitProvider
             theme={darkTheme({
-              accentColor: '#ff8f00',
+              accentColor: '#E5E5E5',
               accentColorForeground: 'black',
               borderRadius: 'large',
               fontStack: 'rounded',

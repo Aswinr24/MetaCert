@@ -3,11 +3,11 @@ import { FaGithub } from 'react-icons/fa'
 
 const Footer = () => {
   return (
-    <main className="bg-blue-400 opacity-60 text-black">
+    <main className="bg-blue-400 opacity-80 text-black">
       <div className="p-10">
         <div className="grid grid-cols-3">
           <div className="flex-row px-10">
-            <div className="flex text-2xl">
+            <div className="flex text-2xl font-semibold">
               <img src="./certified.png" className="w-7 h-7" />
               MetaCert
             </div>
@@ -19,12 +19,12 @@ const Footer = () => {
           </div>
           <div></div>
           <div className="px-10 flex justify-end">
-            <FaGithub className="w-10 h-10 cursor-pointer text-stone-700" />
+            <FaGithub className="w-10 h-10 cursor-pointer text-stone-700 hover:text-stone-800" />
           </div>
         </div>
       </div>
       <hr className="my-1 mx-20 border-stone-700" />
-      <span className="block text-center pb-2 text-sm text-gray-700">
+      <span className="block text-center pb-2 text-sm text-black opacity-80">
         Created by team TrustToken - 2024
       </span>
     </main>

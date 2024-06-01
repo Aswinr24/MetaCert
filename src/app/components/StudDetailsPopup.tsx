@@ -31,7 +31,7 @@ export const StudDetailsPopUp: React.FC<StudentDetailsFormProps> = ({
   }
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-50">
       <div className="bg-stone-400 p-8 w-[410px] rounded-lg">
         <h2 className="text-xl font-semibold mb-4">Enter Student Details</h2>
         <form onSubmit={handleSubmit}>

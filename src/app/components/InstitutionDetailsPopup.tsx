@@ -121,7 +121,7 @@ export const InstitutionDetailsPopUp: React.FC<InstitutionDetailsFormProps> = ({
   return (
     <div>
       {!isHashReady && (
-        <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
+        <div className="fixed inset-0 flex z-50 items-center justify-center bg-gray-900 bg-opacity-50">
           <div className="bg-stone-400 p-8 rounded-lg">
             <h2 className="text-xl font-semibold mb-4">
               Enter Institution Details
