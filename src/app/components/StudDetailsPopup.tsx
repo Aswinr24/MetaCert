@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation'
 type CryptoAddress = `0x${string}`
 
 interface StudentDetailsFormProps {
-  onSubmit: (details: { name: string; address: CryptoAddress }) => void
+  onSubmit: (details: { name: string; address1: CryptoAddress }) => void
   onClose: () => void
   name: string
 }
@@ -20,11 +20,12 @@ export const StudDetailsPopUp: React.FC<StudentDetailsFormProps> = ({
   const router = useRouter()
   const [studname, setStudname] = useState(name)
   const { address, isConnecting, isDisconnected } = useAccount()
+  const address1: CryptoAddress = address ? address : '0x'
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     try {
-      onSubmit({ name: studname, address })
+      onSubmit({ name: studname, address1 })
     } catch (error) {
       console.error('Error submitting student details:', error)
     }

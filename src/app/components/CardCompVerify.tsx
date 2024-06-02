@@ -75,7 +75,6 @@ export function CardCompVerify() {
           <VerifierDetailsPopUp
             onSubmit={handleSubmitDetails}
             onClose={handleClosePopup}
-            name={name}
           />
         )}
       </CardFooter>

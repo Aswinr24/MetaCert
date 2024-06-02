@@ -25,7 +25,10 @@ export function CardCompStud() {
     setShowPopup(false)
   }
 
-  const handleSubmitDetails = (details: { name: string; address: Address }) => {
+  const handleSubmitDetails = (details: {
+    name: string
+    address1: Address
+  }) => {
     console.log('Submitted student details:', details)
     setShowPopup(false)
     router.push('/student')

@@ -24,7 +24,6 @@ const test = async (y: number, x: CryptoAddress) => {
 interface VerifierDetailsFormProps {
   onSubmit: (details: { organizationname: string; address: Address }) => void
   onClose: () => void
-  name: string
 }
 
 interface NFT {
@@ -39,10 +38,9 @@ interface NFT {
 export const VerifierDetailsPopUp: React.FC<VerifierDetailsFormProps> = ({
   onSubmit,
   onClose,
-  name,
 }) => {
-  const [certuid, setCertuid] = useState(name)
-  const [studwallet, setStudwallet] = useState('')
+  const [certuid, setCertuid] = useState<number>(0)
+  const [studwallet, setStudwallet] = useState<CryptoAddress>('0x')
   const { address, isConnecting, isDisconnected } = useAccount()
   const [responseBody, setResponseBody] = useState('')
   const [response, setResponse] = useState(false)
@@ -64,7 +62,7 @@ export const VerifierDetailsPopUp: React.FC<VerifierDetailsFormProps> = ({
       }
 
       const req = http.request(options, function (res) {
-        const chunks = []
+        const chunks: Buffer[] = []
 
         res.on('data', function (chunk) {
           chunks.push(chunk)
@@ -75,7 +73,13 @@ export const VerifierDetailsPopUp: React.FC<VerifierDetailsFormProps> = ({
           const rv = body.toString()
           setResponse(true)
           if (rv.length > 0) {
-            setNfts(rv)
+            try {
+              const nfts: NFT[] = JSON.parse(rv)
+              setNfts(nfts)
+            } catch (error) {
+              console.error('Failed to parse NFTs', error)
+              alert('Failed to load NFTs.')
+            }
           } else {
             alert('No NFTs are held.')
           }
@@ -85,6 +89,26 @@ export const VerifierDetailsPopUp: React.FC<VerifierDetailsFormProps> = ({
       req.end()
     } else {
       alert('Verification failed!')
+    }
+  }
+
+  const handleStudwalletChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value
+    if (value.startsWith('0x')) {
+      setStudwallet(value as CryptoAddress)
+    } else {
+      setStudwallet(`0x${value}` as CryptoAddress)
+    }
+  }
+
+  const handleCertuidChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value
+    const numericValue = parseInt(value, 10)
+
+    if (!isNaN(numericValue)) {
+      setCertuid(numericValue)
+    } else {
+      setCertuid(0)
     }
   }
 
@@ -98,7 +122,7 @@ export const VerifierDetailsPopUp: React.FC<VerifierDetailsFormProps> = ({
             <Input
               id="studwallet"
               value={studwallet}
-              onChange={(e) => setStudwallet(e.target.value)}
+              onChange={handleStudwalletChange}
               className="text-black placeholder:text-black"
             />
           </div>
@@ -107,7 +131,7 @@ export const VerifierDetailsPopUp: React.FC<VerifierDetailsFormProps> = ({
             <Input
               id="certuid"
               value={certuid}
-              onChange={(e) => setCertuid(e.target.value)}
+              onChange={handleCertuidChange}
               className="text-black placeholder:text-black"
             />
           </div>

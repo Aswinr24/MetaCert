@@ -84,12 +84,7 @@ const Dashboard: React.FC = () => {
             >
               Mint Certificate
             </button>
-            {showPopup && (
-              <MintNFTPopup
-                onSubmit={handleSubmitDetails}
-                onClose={handleClosePopup}
-              />
-            )}
+            {showPopup && <MintNFTPopup onClose={handleClosePopup} />}
           </div>
         )
       case 'list':

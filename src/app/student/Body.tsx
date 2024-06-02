@@ -44,7 +44,7 @@ const Body = () => {
     }
 
     const req = http.request(options, function (res) {
-      const chunks = []
+      const chunks: Buffer[] = []
 
       res.on('data', function (chunk) {
         chunks.push(chunk)
@@ -53,7 +53,7 @@ const Body = () => {
       res.on('end', function () {
         const body = Buffer.concat(chunks)
         const rv = JSON.parse(body.toString()).nfts.filter(
-          (x) => x.collection == 'metacert-certs-2'
+          (x: any) => x.collection == 'metacert-certs-2'
         )
         console.log(rv)
         setNfts(rv)

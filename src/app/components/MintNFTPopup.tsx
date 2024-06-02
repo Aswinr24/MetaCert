@@ -27,19 +27,11 @@ import NFTminted from './NFTminted'
 type CryptoAddress = `0x${string}`
 
 interface MintNFTPopupprops {
-  onSubmit: (details: {
-    uid: string
-    address: CryptoAddress
-    file: File
-  }) => void
   onClose: () => void
 }
 
-export const MintNFTPopup: React.FC<MintNFTPopupprops> = ({
-  onSubmit,
-  onClose,
-}) => {
-  const [uid, setUid] = useState<bigint>(0n)
+export const MintNFTPopup: React.FC<MintNFTPopupprops> = ({ onClose }) => {
+  const [uid, setUid] = useState<string>('')
   const [sname, setSname] = useState('')
   const [title, setTitle] = useState('')
   const [mint, setMint] = useState(false)
@@ -48,13 +40,13 @@ export const MintNFTPopup: React.FC<MintNFTPopupprops> = ({
     from: new Date(2022, 0, 20),
     to: addDays(new Date(2022, 0, 20), 20),
   })
-  const [studaddress, setStudaddress] = useState<CryptoAddress | undefined>(
-    undefined
-  )
+  const [studaddress, setStudaddress] = useState<CryptoAddress>('0x')
   const [file, setFile] = useState<File | null>(null)
   const handleClose = () => {
     setMint(false)
   }
+
+  const uid1 = BigInt(uid)
 
   const handleAddressChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value
@@ -95,7 +87,7 @@ export const MintNFTPopup: React.FC<MintNFTPopupprops> = ({
           address: '0x9Dc51E8Cfc9F88385376a685Bf7997426467f487',
           abi,
           functionName: 'mintCert',
-          args: [uid, studaddress, data.jsonPinataLink],
+          args: [uid1, studaddress, data.jsonPinataLink],
         })
         console.log(data)
       } else {
