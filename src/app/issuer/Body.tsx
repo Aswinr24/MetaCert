@@ -25,7 +25,7 @@ const Body = () => {
   }) => {
     console.log('Submitted institution details:', details)
     setShowPopup(false)
-    setName('')         
+    setName('')
   }
   return (
     <main className="flex pt-20">

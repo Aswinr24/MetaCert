@@ -75,7 +75,7 @@ const Dashboard: React.FC = () => {
       case 'issue':
         return (
           <div className="p-4">
-            <h1 className="text-black text-2xl mb-4">
+            <h1 className="text-black text-2xl mb-4 font-semibold">
               Issue Educational Credential to a Student:
             </h1>
             <button

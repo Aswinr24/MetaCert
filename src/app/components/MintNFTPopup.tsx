@@ -40,13 +40,12 @@ export const MintNFTPopup: React.FC<MintNFTPopupprops> = ({ onClose }) => {
     from: new Date(2022, 0, 20),
     to: addDays(new Date(2022, 0, 20), 20),
   })
-  const [studaddress, setStudaddress] = useState<CryptoAddress>('0x')
+  const [studaddress, setStudaddress] = useState('')
   const [file, setFile] = useState<File | null>(null)
   const handleClose = () => {
     setMint(false)
+    onClose()
   }
-
-  const uid1 = BigInt(uid)
 
   const handleAddressChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value
@@ -67,7 +66,7 @@ export const MintNFTPopup: React.FC<MintNFTPopupprops> = ({ onClose }) => {
     formData.append('sname', sname)
     formData.append('title', title)
     formData.append('desc', desc)
-    formData.append('studaddress', studaddress!)
+    formData.append('studaddress', studaddress)
     if (file) {
       formData.append('file', file)
     } else {
@@ -87,7 +86,11 @@ export const MintNFTPopup: React.FC<MintNFTPopupprops> = ({ onClose }) => {
           address: '0x9Dc51E8Cfc9F88385376a685Bf7997426467f487',
           abi,
           functionName: 'mintCert',
-          args: [uid1, studaddress, data.jsonPinataLink],
+          args: [
+            BigInt(uid),
+            studaddress as CryptoAddress,
+            data.jsonPinataLink,
+          ],
         })
         console.log(data)
       } else {
@@ -235,9 +238,17 @@ export const MintNFTPopup: React.FC<MintNFTPopupprops> = ({ onClose }) => {
           <div className="flex justify-end mt-6">
             <button
               type="submit"
-              className="bg-blue-500 px-2 pt-1 hover:bg-blue-600 text-white rounded-md"
+              className="bg-blue-500 px-2 pt-1 hover:bg-blue-600 text-white rounded-lg"
+              disabled={isLoading}
             >
-              Submit
+              {isLoading ? (
+                <div className="flex py-1 items-center gap-2">
+                  <div className="w-5 h-5 border-4 border-t-4 border-white border-t-transparent rounded-full animate-spin"></div>
+                  Creating..
+                </div>
+              ) : (
+                'Submit'
+              )}
             </button>
             <button className="ml-2" onClick={onClose}>
               Cancel

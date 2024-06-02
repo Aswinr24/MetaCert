@@ -12,7 +12,7 @@ export default function Navbar() {
                 href="/"
                 className="text-xl font-bold text-gray-800 flex items-center"
               >
-                <img src="./Certified.png" className="w-8 h-8" />
+                <img src="./certified.png" className="w-8 h-8" />
                 MetaCert
               </a>
             </div>
@@ -21,19 +21,19 @@ export default function Navbar() {
             <div className="hidden sm:ml-6 sm:flex space-x-8">
               <a
                 href="/"
-                className="border-b-2 border-transparent text-gray-700 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 text-sm font-medium"
+                className="border-b-2 border-transparent text-black hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 text-sm font-medium"
               >
                 Home
               </a>
               <a
                 href="/issuer"
-                className="border-b-2 border-transparent text-gray-700 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 text-sm font-medium"
+                className="border-b-2 border-transparent text-black hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 text-sm font-medium"
               >
                 Issuer
               </a>
               <a
                 href="/student"
-                className="border-b-2 border-transparent text-gray-700 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 text-sm font-medium"
+                className="border-b-2 border-transparent text-black hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 text-sm font-medium"
               >
                 Student
               </a>

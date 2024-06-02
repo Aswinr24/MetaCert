@@ -13,11 +13,13 @@ const Sidebar: React.FC<SidebarProps> = ({ onSelectTab }) => {
   }
 
   const tabClassName = (tab: string) =>
-    `py-2 px-4 rounded-lg ${activeTab === tab ? 'bg-stone-700' : 'bg-gray-700'}`
+    `py-2 px-4 rounded-lg ${
+      activeTab === tab ? 'bg-stone-900' : 'bg-stone-200 text-black'
+    }`
 
   return (
-    <div className="w-64 h-full bg-amber-100 bg-opacity-40 text-blue-500 flex flex-col">
-      <h2 className="text-2xl font-bold p-4 text-black">Dashboard</h2>
+    <div className="w-64 h-full bg-blue-200 bg-opacity-60 text-blue-500 flex flex-col">
+      <h2 className="text-2xl font-bold p-4 text-black mt-2">Dashboard</h2>
       <nav className="flex flex-col p-4 space-y-2">
         <button
           className={tabClassName('issue')}

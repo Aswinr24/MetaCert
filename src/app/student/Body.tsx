@@ -64,34 +64,38 @@ const Body = () => {
   }, [address])
 
   return (
-    <main className="pt-1 bg-gray-300">
+    <main className="pt-1 bg-zinc-300">
       <div className="p-2">
         <div className="p-10 mt-20 text-3xl px-10 text-blue-600">
           Your Profile:
         </div>
         <div className="flex text-xl px-10 text-blue-600">Name:</div>
-        <h1 className="text-xl pt-2 px-10 text-blue-600">Wallet Address:</h1>
-        <Input
-          className="bg-stone-200 placeholder:text-black py-2 mx-10 px-6 w-[400px]"
-          placeholder={address}
-          disabled
-        />
+        <div className="flex">
+          <h1 className="text-xl pt-2 pl-10 mr-5 text-blue-600">
+            Wallet Address:
+          </h1>
+          <Input
+            className="bg-stone-100 placeholder:text-black mt-1 px-6 w-[400px]"
+            placeholder={address}
+            disabled
+          />
+        </div>
       </div>
-      <div>
-        <h1 className="text-3xl py-6 px-10 text-blue-600">Your EduNFTs:</h1>
-        <div className="grid grid-cols-3 px-20 py-4 space-y-8">
+      <div className="pb-10">
+        <h1 className="text-3xl pt-6 px-10 text-blue-600">Your EduNFTs:</h1>
+        <div className="grid grid-cols-3 px-20 space-y-10">
           {nfts.length === 0 ? (
             <h1 className="text-2xl text-black">No NFTs are held by you!</h1>
           ) : (
             nfts.map((nft, index) => (
-              <Card className="w-[350px] pb-0 bg-blue-400" key={index}>
+              <Card className="w-[350px] mt-8 pb-0 bg-blue-400" key={index}>
                 <CardHeader className="p-2">
                   <div className="flex-row items-center justify-center">
                     {nft.image_url ? (
                       <img
                         src={nft.image_url}
                         alt={nft.name}
-                        className="w-[340px] h-[260px] rounded-lg"
+                        className="w-[340px] h-[260px] rounded-lg object-cover"
                       />
                     ) : (
                       <img
@@ -101,7 +105,7 @@ const Body = () => {
                       />
                     )}
                   </div>
-                  <CardTitle className="text-center text-2xl">
+                  <CardTitle className="text-center pt-2 text-2xl">
                     {nft.name ? nft.name : 'Name'}
                   </CardTitle>
                 </CardHeader>
@@ -119,7 +123,7 @@ const Body = () => {
                 <CardFooter className="flex gap-6 items-center justify-center">
                   <a
                     href={nft.opensea_url}
-                    className="text-xl text-indigo-800 hover:text-blue-500 cursor-pointer"
+                    className="text-xl text-blue-900 hover:text-black cursor-pointer"
                   >
                     Visit this at OpenSea
                   </a>

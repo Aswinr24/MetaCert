@@ -65,17 +65,22 @@
     --ring: 24 5.7% 82.9%;
   }
 }
-
 @layer base {
   * {
     @apply border-border;
   }
   body {
-    --dot-bg: rgba(0, 0, 0, 0.733);
+    @apply bg-background text-foreground;
+    --dot-bg: rgb(143, 131, 131);
     --dot-color: white;
     --dot-size: 2px;
     --dot-space: 22px;
     background: linear-gradient(
+        to bottom,
+        rgb(124, 121, 119),
+        rgba(87, 83, 78, 0)
+      ),
+      linear-gradient(
           90deg,
           var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
           transparent 1%
