@@ -40,7 +40,7 @@ export const MintNFTPopup: React.FC<MintNFTPopupprops> = ({ onClose }) => {
     from: new Date(2022, 0, 20),
     to: addDays(new Date(2022, 0, 20), 20),
   })
-  const [studaddress, setStudaddress] = useState('')
+  const [studaddress, setStudaddress] = useState<CryptoAddress>('0x')
   const [file, setFile] = useState<File | null>(null)
   const handleClose = () => {
     setMint(false)
