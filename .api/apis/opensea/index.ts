@@ -4,6 +4,7 @@ import Oas from 'oas';
 import APICore from 'api/dist/core';
 import definition from './openapi.json';
 
+
 class SDK {
   spec: Oas;
   core: APICore;
