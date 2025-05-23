@@ -100,7 +100,7 @@ Compile the smart contracts using Hardhat:
 ```bash
 npx hardhat compile
 ```
-#### Deploy Smart Contracts
+#### Deploy the Smart Contracts
 
 Deploy the contracts to the Sepolia test network:
 
